@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fuentes Beltram */
+@font-face {
+  font-family: 'BeltramMono';
+  src: url('./fonts/beltram/BeltramMonoTest-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BeltramMono';
+  src: url('./fonts/beltram/BeltramMonoTest-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BeltramMono';
+  src: url('./fonts/beltram/BeltramMonoTest-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@layer base {
+  body {
+    @apply min-h-screen;
+    background-color: #d9dce6;
+    font-family: 'BeltramMono', sans-serif;
+  }
+}
+
+/* Animación marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.marquee {
+  animation: marquee 40s linear infinite;
+  display: inline-block;
+}
+
+.marquee-reverse {
+  animation: marquee-reverse 40s linear infinite;
+  display: inline-block;
+}
+
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Transiciones suaves para cambio de tema */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Subrayado puntiagudo (sin esquinas redondeadas) */
+.highlight-sharp {
+  background-color: currentColor;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
